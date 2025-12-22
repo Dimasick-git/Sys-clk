@@ -81,8 +81,6 @@ default_mem=1600
 
 Доступ через:
 - **sys‑clk‑overlay** (в Ryazhahand Overlay);
-- **sys‑clk‑manager** (через hbmenu).
-
 
 **Возможности интерфейса:**
 - Мгновенное изменение частот (в пределах лимитов RetroNX).
