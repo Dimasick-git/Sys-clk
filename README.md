@@ -44,9 +44,9 @@
 | Компонент | Примечание |
 |-----------|------------|
 | **Прошивка** | [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere) |
-| **Оверлей** | [Ultrahand](https://github.com/ppkantorski/Ultrahand-Overlay) или совместимые менеджеры оверлеев |
+| **Оверлей** | [Ryazhahand](https://github.com/Dimasick-git/Ryazhahand-Overlay) или совместимые менеджеры оверлеев |
 | **FPS для авто** | [SaltyNX](https://github.com/masagrator/SaltyNX) как sysmodule — для Ryazha-Авто желателен патченный вариант из экосистемы Horizon OC (общий блок FPS / `renderTickAvg` для лучшего VRR) |
-| **KIP** | В дистрибутиве Horizon OC — **`hoc.kip` / `rcu.kip`** по инструкции сборки |
+| **KIP** | В дистрибутиве Horizon OC — **`rcu.kip`** по инструкции сборки |
 
 Связка **Ryazhenka** / **Ryazhahand** по желанию: [Ryzhenka](https://github.com/Dimasick-git/Ryzhenka), [Ryazhahand-Overlay](https://github.com/Dimasick-git/Ryazhahand-Overlay).
 
@@ -77,7 +77,7 @@
 
 ## Благодарности
 
-- **Horizon OC** — hoc-clk, губернатор VRR, интеграции.
+- **Horizon OC** — hoc-clk и за улучшенные настройки CPU/GPU/RAM.
 - **retronx-team / sys-clk** — базовая архитектура.
 - **masagrator** — SaltyNX.
 - **Atmosphere** — SciresM и участники.
