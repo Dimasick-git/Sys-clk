@@ -2,99 +2,69 @@
 
 # Ryazha-clk
 
-### Кастомный sys-clk для Nintendo Switch · русский интерфейс · умный авторазгон
+### Русский оверлей и sysmodule управления частотами Nintendo Switch Mariko
 
-[![Release](https://img.shields.io/github/v/release/Dimasick-git/Sys-clk?label=релиз&style=for-the-badge)](https://github.com/Dimasick-git/Sys-clk/releases)
-![License](https://img.shields.io/badge/license-GPL--2.0-blue?style=for-the-badge)
+[![Последний релиз](https://img.shields.io/github/v/release/Dimasick-git/Sys-clk?label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&style=for-the-badge)](https://github.com/Dimasick-git/Sys-clk/releases/latest)
+[![Исходная сборка](https://img.shields.io/github/actions/workflow/status/Ryazhenka-Makers/RCU/build.yml?branch=main&label=%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0&style=for-the-badge)](https://github.com/Ryazhenka-Makers/RCU/actions/workflows/build.yml)
+[![Лицензия](https://img.shields.io/badge/license-GPL--2.0-blue?style=for-the-badge)](https://github.com/Ryazhenka-Makers/RCU/blob/main/LICENSE)
 
-**Ветка 3.x** — сборка на базе **Horizon OC / hoc-clk** с расширенным **Ryazha-Авто**, авто **VRR** и интеграцией **SaltyNX**.
-
-[Скачать релиз](https://github.com/Dimasick-git/Sys-clk/releases) · [Issues](https://github.com/Dimasick-git/Sys-clk/issues)
-
-</div>
-
----
-
-## Что это
-
-**Ryazha-clk** — сисмодуль и оверлей для управления частотами **CPU / GPU / RAM** и режимом экрана на **Atmosphere**. В этом форке интерфейс и документация ориентированы на русскоязычных пользователей; ядро логики развито в сторону **автоматической подстройки под FPS** и **переменной частоты развёртки (VRR)** в портативе.
-
----
-
-## Версия 3.0.0 — основное
-
-| Направление | Содержание |
-|-------------|------------|
-| **Ryazha-Авто** | Автоподбор частот по **реальному FPS** (данные **SaltyNX**). Без валидного FPS авто **не вмешивается**. |
-| **Меню** | Скрытое меню авторазгона по кнопке **X** на главном экране оверлея; пункт «О программе» убран; переименованы профили. |
-| **GPU / CPU** | По FPS — **цепочки шагов** (нарастающие пачки) вверх и вниз; **±1** к размеру пачки от отклонения FPS от цели. Термо и TDP — по-прежнему **один шаг** за событие. |
-| **Полы частот** | Зависят от **целевого FPS**: 30 FPS → **307 / 918** МГц (GPU/CPU); 45 / 60 / 60+ → **460 / 1020** МГц. GPU не ниже **307** МГц. |
-| **Пресет 60+** | Цель для логики авто: **64 FPS** на **OLED (Aula)** и **71 FPS** на остальных панелях (согласовано с потолком VRR). |
-| **TDP / температуры** | Порог **TDP** (мВт), лимиты **°C** для CPU/GPU (диапазон **30–80°C**), без управления вентилятором из меню авто. |
-| **Кэп игры** | Детект принудительного лимита FPS (кат-сцены, меню): по **FPSlocked**, низкой нагрузке GPU, «липкому» FPS — без лишнего разгона. |
-| **VRR** | При активном Ryazha-Авто включается **VRR Авто**; в меню есть пояснение. |
-| **RAM** | В авто — **максимум** в рамках профиля. |
-
-Подробная пользовательская памятка по кнопкам: файл **`RYAZHA-CLK-USER-GUIDE.md`** в архиве релиза. Техническая сводка: **`RYAZHA-CLK-SVODKA.md`**.
-
----
-
-## Совместимость
-
-| Компонент | Примечание |
-|-----------|------------|
-| **Прошивка** | [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere) |
-| **Оверлей** | [Ryazhahand](https://github.com/Dimasick-git/Ryazhahand-Overlay) или совместимые менеджеры оверлеев |
-| **FPS для авто** | [SaltyNX](https://github.com/masagrator/SaltyNX) как sysmodule — для Ryazha-Авто желателен патченный вариант из экосистемы Horizon OC (общий блок FPS / `renderTickAvg` для лучшего VRR) |
-| **KIP** | В дистрибутиве Horizon OC — **`rcu.kip`** по инструкции сборки |
-
-Связка **Ryazhenka** / **Ryazhahand** по желанию: [Ryzhenka](https://github.com/Dimasick-git/Ryzhenka), [Ryazhahand-Overlay](https://github.com/Dimasick-git/Ryazhahand-Overlay).
-
----
-
-## Установка (кратко)
-
-1. Скачайте архив **`dist`** из [Releases](https://github.com/Dimasick-git/Sys-clk/releases) для версии **3.0.0**.
-2. Распакуйте в **корень SD-карты** (структура `atmosphere/`, `config/`, `switch/` и т.д.).
-3. Установите зависимости (Atmosphere, SaltyNX при использовании авторазгона).
-4. Перезагрузите консоль.
-
-Полная схема путей и KIP — в **`README.md`** внутри архива дистрибутива и в документации [Horizon OC](https://github.com/Horizon-OC/Horizon-OC).
-
----
-
-## Сборка из исходников
-
-Исходный код **hoc-clk** входит в репозиторий **Horizon OC**. Сборка: **devkitPro (devkitA64)**, скрипты **`build.sh`** / **`pack_dist_only.sh`**, см. **`COMPILING.md`** в том репозитории.
-
----
-
-## Отказ от ответственности
-
-Разгон и смена частот **ОЗУ** могут повредить **NAND** или **карту памяти**. Делайте резервные копии. Используйте на **свой риск**.
-
----
-
-## Благодарности
-
-- **Horizon OC** — hoc-clk и за улучшенные настройки CPU/GPU/RAM.
-- **retronx-team / sys-clk** — базовая архитектура.
-- **masagrator** — SaltyNX.
-- **Atmosphere** — SciresM и участники.
-- Сообщество Switch — тесты и обратная связь.
-
----
-
-## Лицензия
-
-Исходный код **hoc-clk / sys-clk** в цепочке **Horizon OC** распространяется под **GPL-2.0**. Полный текст обычно в файле `LICENSE` в upstream-репозитории.
-
----
-
-<div align="center">
-
-**[Releases](https://github.com/Dimasick-git/Sys-clk/releases)** · **[Dimasick-git/Sys-clk](https://github.com/Dimasick-git/Sys-clk)**
-
-*Ryazha-clk 3.0.0 — стабильная ветка описания функций авторазгона и VRR.*
+[Скачать последний пакет](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Исходный код RCU](https://github.com/Ryazhenka-Makers/RCU)
 
 </div>
+
+---
+
+## О проекте
+
+**Ryazha-clk** — распространяемый SD-ready пакет для управления CPU, GPU, RAM, профилями приложений и совместимыми экранными режимами на Nintendo Switch **Mariko** под Atmosphère. Внутри находятся загрузочный KIP, sysmodule, оверлей, шаблон конфигурации и языковые файлы. Интерфейс ориентирован на русскоязычное использование в Ryazhahand.
+
+Проект собирается только из [Ryazhenka-Makers/RCU](https://github.com/Ryazhenka-Makers/RCU). Этот репозиторий хранит публичные релизы и постоянную пользовательскую документацию; бинарные файлы вручную сюда не загружаются.
+
+> **Предупреждение.** Частоты, напряжения и тайминги памяти могут вызвать зависания и потерю данных. Перед использованием создайте резервные копии NAND, PRODINFO, emuMMC и SD-карты. Любые изменения выполняются на ваш риск.
+
+## Установка
+
+1. Скачайте **[`Ryazha-clk.zip`](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip)** из последнего release.
+2. Распакуйте архив в **корень SD-карты**, разрешив объединение папок `atmosphere`, `config` и `switch`.
+3. Используйте совместимую Atmosphère и Ryazhahand или Tesla-совместимый менеджер оверлеев.
+4. Полностью перезагрузите консоль, затем откройте `ryazha-clk.ovl`.
+
+Архив не нужно распаковывать в отдельную вложенную папку. Его структура уже готова для SD-карты.
+
+| Внутри `Ryazha-clk.zip` | Назначение |
+|---|---|
+| `atmosphere/kips/rcu.kip` | Boot-патчер RCU. |
+| `atmosphere/contents/.../exefs.nsp` | Sysmodule Ryazha-clk. |
+| `switch/.overlays/ryazha-clk.ovl` | Русскоязычный оверлей. |
+| `config/ryazha-clk/` | Шаблон настроек и языковые файлы. |
+| `config/ryazhahand/assets/notifications/rcu.rgba` | Ресурс уведомлений Ryazhahand. |
+
+## Возможности
+
+Ryazha-clk содержит профили частот для игр и глобальных режимов, мониторинг, ограничения TDP и температуры, частоты CPU/GPU/RAM и на совместимых конфигурациях — Ryazha-Авто по FPS и настройки экрана/VRR. Для работы автоматического режима нужен валидный FPS от SaltyNX.
+
+Названия, доступность и безопасный диапазон пунктов зависят от прошивки, модели консоли, активного профиля и установленных компонентов CFW. Не применяйте экспериментальные параметры без понимания их назначения.
+
+## Автоматические релизы
+
+Номер версии задаётся в RCU одной строкой `APP_VERSION`. Например, изменение на `APP_VERSION := 3.0.1` и push в `main` автоматически создаёт здесь release **`v3.0.1`** и публикует проверенный `Ryazha-clk.zip`. При неизменной версии существующий release не перезаписывается.
+
+| Событие в RCU | Поведение Sys-clk |
+|---|---|
+| Новый `APP_VERSION` в `main` | Новый тег и release с тем же номером. |
+| Обычный commit без изменения версии | Сборка выполняется, release не меняется. |
+| Ручное исправление asset | Допускается только отдельным принудительным запуском workflow. |
+
+Такой порядок сохраняет историю релизов и не смешивает разные сборки под одним тегом.
+
+## Документация
+
+| Документ | Содержание |
+|---|---|
+| [Памятка по кнопкам и меню](RYAZHA-CLK-USER-GUIDE.md) | Основные экраны, кнопки и режим Ryazha-Авто. |
+| [Заметки v3.0.0](RELEASE_NOTES_3.0.0.md) | Исторический список изменений ветки 3.0. |
+| [RCU: параметры и сборка](https://github.com/Ryazhenka-Makers/RCU) | Полный технический справочник, версия и CI-процесс. |
+
+## Благодарности и лицензия
+
+Ryazha-clk основан на работах Horizon OC, hoc-clk, sys-clk, Atmosphère, libnx, SaltyNX, Ultrahand/libtesla и сообщества Nintendo Switch. Исходные компоненты распространяются на условиях GPL-2.0; учитывайте лицензии upstream-проектов при повторном использовании.
