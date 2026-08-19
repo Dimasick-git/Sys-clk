@@ -5,10 +5,9 @@
 ### Русский оверлей и sysmodule управления частотами Nintendo Switch Mariko
 
 [![Последний релиз](https://img.shields.io/github/v/release/Dimasick-git/Sys-clk?label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&style=for-the-badge)](https://github.com/Dimasick-git/Sys-clk/releases/latest)
-[![Исходная сборка](https://img.shields.io/github/actions/workflow/status/Ryazhenka-Makers/RCU/build.yml?branch=main&label=%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0&style=for-the-badge)](https://github.com/Ryazhenka-Makers/RCU/actions/workflows/build.yml)
-[![Лицензия](https://img.shields.io/badge/license-GPL--2.0-blue?style=for-the-badge)](https://github.com/Ryazhenka-Makers/RCU/blob/main/LICENSE)
+![Лицензия](https://img.shields.io/badge/license-GPL--2.0-blue?style=for-the-badge)
 
-[Скачать последний пакет](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Исходный код RCU](https://github.com/Ryazhenka-Makers/RCU)
+[Скачать последний пакет](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Issues](https://github.com/Dimasick-git/Sys-clk/issues)
 
 </div>
 
@@ -18,7 +17,7 @@
 
 **Ryazha-clk** — распространяемый SD-ready пакет для управления CPU, GPU, RAM, профилями приложений и совместимыми экранными режимами на Nintendo Switch **Mariko** под Atmosphère. Внутри находятся загрузочный KIP, sysmodule, оверлей, шаблон конфигурации и языковые файлы. Интерфейс ориентирован на русскоязычное использование в Ryazhahand.
 
-Проект собирается только из [Ryazhenka-Makers/RCU](https://github.com/Ryazhenka-Makers/RCU). Этот репозиторий хранит публичные релизы и постоянную пользовательскую документацию; бинарные файлы вручную сюда не загружаются.
+Этот репозиторий хранит публичные релизы и постоянную пользовательскую документацию. Каждый опубликованный архив проходит проверку структуры и предназначен для распаковки прямо в корень SD-карты; бинарные файлы вручную сюда не загружаются.
 
 > **Предупреждение.** Частоты, напряжения и тайминги памяти могут вызвать зависания и потерю данных. Перед использованием создайте резервные копии NAND, PRODINFO, emuMMC и SD-карты. Любые изменения выполняются на ваш риск.
 
@@ -63,7 +62,7 @@ Ryazha-clk содержит профили частот для игр и гло�
 |---|---|
 | [Памятка по кнопкам и меню](RYAZHA-CLK-USER-GUIDE.md) | Основные экраны, кнопки и режим Ryazha-Авто. |
 | [Заметки v3.0.0](RELEASE_NOTES_3.0.0.md) | Исторический список изменений ветки 3.0. |
-| [RCU: параметры и сборка](https://github.com/Ryazhenka-Makers/RCU) | Полный технический справочник, версия и CI-процесс. |
+| [Releases](https://github.com/Dimasick-git/Sys-clk/releases) | Список версий и проверенные пакеты для установки. |
 
 ## Благодарности и лицензия
 
