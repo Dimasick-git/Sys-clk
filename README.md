@@ -8,7 +8,7 @@
 ![Платформа](https://img.shields.io/badge/Nintendo%20Switch-Mariko-8B5CF6?style=for-the-badge)
 ![Интерфейс](https://img.shields.io/badge/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-2563EB?style=for-the-badge)
 
-[Скачать `Ryazha-clk.zip`](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Инструкция по кнопкам](RYAZHA-CLK-USER-GUIDE.md) · [Сообщить о проблеме](https://github.com/Dimasick-git/Sys-clk/issues)
+[Скачать `Ryazha-clk.zip`](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Полный гайд по кнопкам и настройкам](RYAZHA-CLK-USER-GUIDE.md) · [Сообщить о проблеме](https://github.com/Dimasick-git/Sys-clk/issues)
 
 </div>
 
@@ -91,7 +91,7 @@ Ryazha-Авто использует **валидный FPS от SaltyNX**. Бе
 | Вернуть отдельную частоту к стоку | Наведитесь на CPU/GPU/RAM в профиле и нажмите **Y**. |
 | Быстро вернуть экран к 60 Гц | На экране со списком нажмите **Y**. |
 
-Подробные действия по кнопкам, меню, значениям и ограничениям описаны в [пользовательской памятке](RYAZHA-CLK-USER-GUIDE.md).
+Подробные действия по **каждой кнопке**, меню, значениям, зависимостям и ограничениям описаны в [полном пользовательском гайде](RYAZHA-CLK-USER-GUIDE.md).
 
 ## Если что-то не работает
 
@@ -113,7 +113,7 @@ Ryazha-Авто использует **валидный FPS от SaltyNX**. Бе
 
 | Документ | Назначение |
 |---|---|
-| [Памятка по кнопкам и меню](RYAZHA-CLK-USER-GUIDE.md) | Пошаговая работа с главным экраном, профилями, Overrides, настройками и Ryazha-Авто. |
+| [Полный гайд по кнопкам и настройкам](RYAZHA-CLK-USER-GUIDE.md) | Реальное действие каждого пункта меню, зависимости, режимы CPU/GPU/RAM/DVFS, VRR, Auto OC и экспертные разделы с привязкой к коду. |
 | [Заметки v3.0.0](RELEASE_NOTES_3.0.0.md) | Исторический список ключевых нововведений ветки 3.0. |
 | [Все releases](https://github.com/Dimasick-git/Sys-clk/releases) | Проверенные SD-ready архивы для установки. |
 
