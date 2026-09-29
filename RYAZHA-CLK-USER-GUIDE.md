@@ -805,4 +805,4 @@ daTurns = 1
 
 ## Лицензия и благодарности
 
-Проект использует наработки Ryazha Clk, sys-clk, Horizon-OC, Atmosphère, libnx, SaltyNX, Ultrahand / libtesla. Код распространяется по **GPL-2.0**; при повторном использовании учитывайте лицензии upstream-компонентов.
+Проект использует наработки sys-clk, Horizon-OC, Atmosphère, libnx, SaltyNX, Ultrahand / libtesla. 
