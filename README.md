@@ -10,7 +10,7 @@
 ![HOS](https://img.shields.io/badge/HOS-%D0%B4%D0%BE%2023.0.0-22C55E?style=for-the-badge)
 ![Интерфейс](https://img.shields.io/badge/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-2563EB?style=for-the-badge)
 
-[Скачать `Ryazha-clk.zip`](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Что нового в 3.5.1](RELEASE_NOTES_3.5.1.md) · [Руководство](RYAZHA-CLK-USER-GUIDE.md) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Сообщить о проблеме](https://github.com/Dimasick-git/Sys-clk/issues)
+[Скачать `Ryazha-clk.zip`](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Что нового в 3.5.5](RELEASE_NOTES_3.5.5.md) · [Руководство](RYAZHA-CLK-USER-GUIDE.md) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Сообщить о проблеме](https://github.com/Dimasick-git/Sys-clk/issues)
 
 </div>
 
@@ -23,6 +23,16 @@
 **Один пакет на обе консоли.** Кип сам определяет чип — Erista (V1) или Mariko (V2, Lite, OLED) — и включает свою ветку. Оверлей показывает только то, что на этом чипе работает.
 
 > **Важно.** Разгон, тайминги памяти и напряжения могут привести к нестабильности, порче сохранений и потере данных. Перед экспериментами сделайте резервные копии NAND, PRODINFO, emuMMC и SD-карты. Всё выполняется на ваш риск.
+
+## Новое в 3.5.5
+
+| | Что нового |
+|---|---|
+| **Пресеты кипа** | четыре слота: сохранить текущие настройки кипа, загрузить слот — консоль перезагрузится сама. Y на слоте — все его настройки карточками, «+» — текущие настройки |
+| **Настройки переживают обновление** | демон держит копию настроек кипа и после распаковки нового пакета сам переносит её в новый кип (одна автоматическая перезагрузка). Работает со следующего обновления после 3.5.5 |
+| **ЦПУ: потолок и Vmin сразу** | «Макс. вольтаж ЦПУ» и ручной Vmin меняются без перезагрузки, на обоих чипах |
+
+Подробно — в [заметках к 3.5.5](RELEASE_NOTES_3.5.5.md).
 
 ## Новое в 3.5.1
 
@@ -63,7 +73,7 @@
 ## Установка
 
 1. Поставьте **Atmosphère 1.12.0** (и hekate 6.5.x, если грузитесь через него) — или оставайтесь на **1.11.2**.
-2. Скачайте архив под свою Atmosphère: [**`Ryazha-clk.zip`**](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) для 1.12.0 или [**`Ryazha-clk-3.5.1-AMS-1.11.2.zip`**](https://github.com/Dimasick-git/Sys-clk/releases/download/v3.5.1/Ryazha-clk-3.5.1-AMS-1.11.2.zip) для 1.11.2. С кипом от другой версии консоль не загрузится.
+2. Скачайте архив под свою Atmosphère: [**`Ryazha-clk.zip`**](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) для 1.12.0 или [**`Ryazha-clk-3.5.5-AMS-1.11.2.zip`**](https://github.com/Dimasick-git/Sys-clk/releases/download/v3.5.5/Ryazha-clk-3.5.5-AMS-1.11.2.zip) для 1.11.2. С кипом от другой версии консоль не загрузится.
 3. Распакуйте **в корень SD-карты** с объединением папок `atmosphere`, `config` и `switch`.
 4. Через **hekate** — добавьте в свою запись загрузки строку:
    ```ini
@@ -83,7 +93,7 @@
 | `atmosphere/contents/00FF0000636C6BFF/` | сисмодуль (демон) и его ранний запуск |
 | `atmosphere/exosphere.bin` | монитор безопасности Atmosphère 1.12.0 с правкой доступа к регистрам |
 | `switch/.overlays/ryazha-clk.ovl` | оверлей |
-| `config/ryazha-clk/` | шаблоны `config.ini` и `timings.ini`, языковые файлы |
+| `config/ryazha-clk/` | шаблоны `config.ini` и `timings.ini`, языковые файлы, метка обновления `kip/restore.flag` |
 | `config/ryazhahand/assets/notifications/rcu.rgba` | ресурс уведомлений |
 
 ## Быстрый старт
@@ -118,14 +128,15 @@
 | Документ | О чём |
 |---|---|
 | [Руководство пользователя](RYAZHA-CLK-USER-GUIDE.md) | каждый раздел меню для Erista и Mariko, как держится напряжение ЦПУ, справочник таймингов, сон, диагностика по логу |
-| [Заметки к 3.5.1](RELEASE_NOTES_3.5.1.md) | всё новое в этой версии |
+| [Заметки к 3.5.5](RELEASE_NOTES_3.5.5.md) | всё новое в этой версии |
+| [Заметки к 3.5.1](RELEASE_NOTES_3.5.1.md) | два архива (1.12.0 и 1.11.2), живые ручки пропускной способности, Erista «Авто» |
 | [Заметки к 3.5.0](RELEASE_NOTES_3.5.0.md) | Erista в релизе, DVCO Mariko на лету, Atmosphère 1.12.0 |
 | [Erista: статус поддержки](ERISTA_LIVE_TUNING_STATUS.md) | что проверено на железе Erista и какие ограничения |
 | [Заметки 3.2.0](RELEASE_NOTES_3.2.0.md) · [3.0.0](RELEASE_NOTES_3.0.0.md) | прошлые версии |
 
 ## Обновления
 
-Новые версии — на странице [Releases](https://github.com/Dimasick-git/Sys-clk/releases): распакуйте новый `Ryazha-clk.zip` поверх и перезагрузите консоль. Кип, сисмодуль и оверлей обновляются только вместе.
+Новые версии — на странице [Releases](https://github.com/Dimasick-git/Sys-clk/releases): распакуйте новый архив поверх и перезагрузите консоль. Кип, сисмодуль и оверлей обновляются только вместе. Настройки кипа с 3.5.5 переносит сам демон — после первой загрузки консоль один раз перезагрузится; на всякий случай сохраните их в пресет.
 
 ## Благодарности
 
