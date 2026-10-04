@@ -6,11 +6,11 @@
 
 [![Последний релиз](https://img.shields.io/github/v/release/Dimasick-git/Sys-clk?label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&style=for-the-badge)](https://github.com/Dimasick-git/Sys-clk/releases/latest)
 ![Консоли](https://img.shields.io/badge/Nintendo%20Switch-Erista%20%C2%B7%20Mariko-8B5CF6?style=for-the-badge)
-![Atmosphère](https://img.shields.io/badge/Atmosph%C3%A8re-1.12.0-0EA5E9?style=for-the-badge)
+![Atmosphère](https://img.shields.io/badge/Atmosph%C3%A8re-1.12.0%20%C2%B7%201.11.2-0EA5E9?style=for-the-badge)
 ![HOS](https://img.shields.io/badge/HOS-%D0%B4%D0%BE%2023.0.0-22C55E?style=for-the-badge)
 ![Интерфейс](https://img.shields.io/badge/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-2563EB?style=for-the-badge)
 
-[Скачать `Ryazha-clk.zip`](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Что нового в 3.5.0](RELEASE_NOTES_3.5.0.md) · [Руководство](RYAZHA-CLK-USER-GUIDE.md) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Сообщить о проблеме](https://github.com/Dimasick-git/Sys-clk/issues)
+[Скачать `Ryazha-clk.zip`](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) · [Что нового в 3.5.1](RELEASE_NOTES_3.5.1.md) · [Руководство](RYAZHA-CLK-USER-GUIDE.md) · [Все релизы](https://github.com/Dimasick-git/Sys-clk/releases) · [Сообщить о проблеме](https://github.com/Dimasick-git/Sys-clk/issues)
 
 </div>
 
@@ -23,6 +23,17 @@
 **Один пакет на обе консоли.** Кип сам определяет чип — Erista (V1) или Mariko (V2, Lite, OLED) — и включает свою ветку. Оверлей показывает только то, что на этом чипе работает.
 
 > **Важно.** Разгон, тайминги памяти и напряжения могут привести к нестабильности, порче сохранений и потере данных. Перед экспериментами сделайте резервные копии NAND, PRODINFO, emuMMC и SD-карты. Всё выполняется на ваш риск.
+
+## Новое в 3.5.1
+
+| | Что нового |
+|---|---|
+| **Два архива** | `Ryazha-clk.zip` — под Atmosphère 1.12.0, `Ryazha-clk-3.5.1-AMS-1.11.2.zip` — под 1.11.2. Кип и `exosphere.bin` должны совпадать с версией Atmosphère |
+| **Ручки пропускной способности, живьём** | «tRCD записи» и «Приоритет ЦПУ к памяти» — на обоих чипах, по умолчанию выключены |
+| **Erista, ЦПУ** | «Авто», «−20», «−40» — вольтаж ведёт контур до нужной частоты; «По своей таблице» — ровно строка; пол «Авто» 812.5 мВ |
+| **Erista, РАМ** | «RCU-Авто» ставит VDD2 и SoC по частоте: до 1600 сток 1125, разгон 1275…1312.5, SoC 975 |
+
+Подробно — в [заметках к 3.5.1](RELEASE_NOTES_3.5.1.md).
 
 ## Главное в 3.5.0
 
@@ -51,8 +62,8 @@
 
 ## Установка
 
-1. Поставьте **Atmosphère 1.12.0** (и hekate 6.5.x, если грузитесь через него).
-2. Скачайте [**`Ryazha-clk.zip`**](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip).
+1. Поставьте **Atmosphère 1.12.0** (и hekate 6.5.x, если грузитесь через него) — или оставайтесь на **1.11.2**.
+2. Скачайте архив под свою Atmosphère: [**`Ryazha-clk.zip`**](https://github.com/Dimasick-git/Sys-clk/releases/latest/download/Ryazha-clk.zip) для 1.12.0 или [**`Ryazha-clk-3.5.1-AMS-1.11.2.zip`**](https://github.com/Dimasick-git/Sys-clk/releases/download/v3.5.1/Ryazha-clk-3.5.1-AMS-1.11.2.zip) для 1.11.2. С кипом от другой версии консоль не загрузится.
 3. Распакуйте **в корень SD-карты** с объединением папок `atmosphere`, `config` и `switch`.
 4. Через **hekate** — добавьте в свою запись загрузки строку:
    ```ini
@@ -107,7 +118,8 @@
 | Документ | О чём |
 |---|---|
 | [Руководство пользователя](RYAZHA-CLK-USER-GUIDE.md) | каждый раздел меню для Erista и Mariko, как держится напряжение ЦПУ, справочник таймингов, сон, диагностика по логу |
-| [Заметки к 3.5.0](RELEASE_NOTES_3.5.0.md) | всё новое в этой версии |
+| [Заметки к 3.5.1](RELEASE_NOTES_3.5.1.md) | всё новое в этой версии |
+| [Заметки к 3.5.0](RELEASE_NOTES_3.5.0.md) | Erista в релизе, DVCO Mariko на лету, Atmosphère 1.12.0 |
 | [Erista: статус поддержки](ERISTA_LIVE_TUNING_STATUS.md) | что проверено на железе Erista и какие ограничения |
 | [Заметки 3.2.0](RELEASE_NOTES_3.2.0.md) · [3.0.0](RELEASE_NOTES_3.0.0.md) | прошлые версии |
 
